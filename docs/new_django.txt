@@ -1,0 +1,32 @@
+1.sudo pip3 install django 
+2.pip3
+>>> import django
+>>> print(django.get_version())
+
+3.alias ll='ls -l'只在当前session 管用
+  需要写入/etc/profile 可以作用到所用用户的session中
+  执行 source /etc/profile，可立即生效。
+
+ sudo ifconfig wlan0 up
+
+4.python3 manage.py startapp polls
+
+ 'ENGINE': 'django.db.backends.mysql',
+ 'NAME': 'pi',
+ 'USER': 'nirvana',
+ 'PASSWORD': '123456',
+ 'HOST': '127.0.0.1',
+ 'PORT': '3306',
+
+python2 对应的模块是 MySQLdb, MySQLdb 不支持python3,安装mysqlclient.
+sudo pip3 install mysqlclient
+
+5. 什么是django里的migration：把Model(class类) 映射到 数据库表的过程
+6. 
+  在 app下的models.py 新建 Model Class
+  改project下的{project_name}/settings.py 下增加  polls.apps.PollsConfig(是一个class)， 从polls的apps.py里面获得
+  python3 manage.py makemigrations polls  把models 映射成 migrations文件 
+  python3 manage.py sqlmigrate polls 0001 查看通过migrations文件生成的sql(和数据库类型相关)
+  python3 manage.py migrate  生成数据库表
+
+
